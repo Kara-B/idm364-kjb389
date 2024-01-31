@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --primary-color: #FF6B00 ;
+    --secondary-color: #FEE006; 
+    --dark-grey:#282828;
+    --light-cream:#F9ECCF;
+}
+@font-face {
+    font-family: 'HeyNovember'; 
+    src: url('/fonts/HeyNovember.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    background-image: url(/src/lib/assets/white_brick_bg_20.png);
+    background-repeat:round;
+}
+
+/* Text Styles */
+h1 {
+    font-family: 'HeyNovember';
+    font-size: 2.125rem;
+    margin: 1rem;
+}
+h2 {
+    font-family: 'HeyNovember';
+    font-size: .875rem;
+}
+h3 {
+    font-family: 'Darker Grotesque';
+    font-size: 2.125rem;
+    font-weight: 800;
+}
+h5 {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+h6 {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+}
+p {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin: 1rem;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+.wt_text {
+color: white;
+}
+.primary_bg {
+    background-color: var(--primary-color);
+    color: var(--dark-grey);
+    }
+.secondary_bg {
+    background-color: var(--secondary-color);
+    color: var(--dark-grey);
+    }
+.dark_bg {
+    background-color: var(--dark-grey);
+    color: var(--light-cream);
+    }
