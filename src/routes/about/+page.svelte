@@ -3,36 +3,54 @@
     import Icon from '@iconify/svelte';
 </script>
 <HeaderTwo />
-<h3> Weird- but it makes Scents</h3>
-<p>Since the dawn of wax, candles have always found their space. Whether its creating holiday aromas in your home, preparing for a romantic proposal, or even as a last minute mother’s day gifts, the variety of uses is endless...but what about making candles purely for fun? </p>
-<p> Our founder Randal Wickman built this company around the core concept of candles meant for lighthearted fun. These aren’t your grandma’s clean linen or cinnamon, our candles are about experimenting and delighting with something unique. We want to make you do a double take when you light our candles, maybe it takes a whiff or two before you come around to it. In the end, you should experience something *new*. Out with the traditional, and in with the experimental, its the only way we can create new art 🔥 </p>
+<div class="m2 ml3 two-col-spec">
+    <div>
+        <h3> Weird- but it makes Scents</h3>
+        <p> Since the dawn of wax, candles have always found their space. Whether its creating holiday aromas in your home, preparing for a romantic proposal, or even as a last minute mother&#39;s day gifts, the variety of uses is endless...but what about making candles purely for fun? </p>
+        <p> Our founder Randal Wickman built this company around the core concept of candles meant for lighthearted fun. These aren&#39;t your grandma&#39;s clean linen or cinnamon, our candles are about experimenting and delighting with something unique. We want to make you do a double take when you light our candles, maybe it takes a whiff or two before you come around to it. In the end, you should experience something *new*. Out with the traditional, and in with the experimental, its the only way we can create new art 🔥 </p>
+    </div>
+    <div class="special_image">
+        <img src="/src/lib/assets/bw_candles_graphic.png" alt="A graphic of a variety of candles."> 
+    </div>
+</div>
 
-<h3> Our Candles Are: </h3>
+<h3 class="ml3 m2"> Our Candles Are: </h3>
 
 <div class="three-col-cards">
     <div class="infoCard">
         <div class="primary_bg ">
-            <Icon icon="fa-solid:leaf"  style="color: #282828 ; font-size: 75px" />
-            <h1> Eco-Friendly & Sustainable </h1>
+            <Icon icon="fa-solid:leaf"  style="color: #282828 ; font-size: 55px" />
+            <h2> Eco-Friendly & Sustainable </h2>
         </div>
         <p> Made with Soy Wax and Bio-degradable materials, WickHeads were made to be not just fun- but environmentally concsious </p>
     </div>
     <div class="infoCard">
         <div class="secondary_bg ">
             <Icon icon="mdi:flame"  style="color: #282828 ; font-size: 75px" />
-            <h1> High Quality & Long-Burning </h1>
+            <h2> High Quality & Long-Burning </h2>
         </div>
         <p> Made with Soy Wax and Bio-degradable materials, WickHeads were made to be not just fun- but environmentally concsious </p>
     </div>
     <div class="infoCard">
         <div class="dark_bg ">
             <Icon icon="mdi:charity"  style="color: #F9ECCF; font-size: 75px" />
-            <h1> Charitable & Made With Love </h1>
+            <h2> Charitable & Made With Love </h2>
         </div>
         <p> Made with Soy Wax and Bio-degradable materials, WickHeads were made to be not just fun- but environmentally concsious </p>
     </div>
 </div>
 
+<div class="heyThere">
+    <h3> Scrolled down this far? </h3>
+    <p> Either something is very right, or very wrong. Contact us for more information on getting involved, suggestions, or to voice a concern. One way or another- we're listening. </p>
+    <div> 
+        <button class="dark_bg"> <Icon icon="bxs:phone"  style="color: #F9ECCF ; font-size: 35px" /> 012-345-6789 </button>
+        <button class="dark_bg"> <Icon icon="ic:round-email"  style="color: #F9ECCF ; font-size: 35px" /> contact@wickhead.co </button>
+    </div>
+</div>
+
+<div class="colorBlock">
+</div>
 
 <style>
     .infoCard {
@@ -41,24 +59,63 @@
         align-items: center;
         background-color: #f9f9f9;
         box-shadow: 0px 5px 2.4px 0px rgba(0, 0, 0, 0.07), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        width: 307px;
+        margin: 1rem;
+        width: 250px;
     }
     .infoCard div {
         display: flex;
-        /* flex-direction: column; */
+        flex-direction: column;
         padding: 1rem;
         align-items: center;
         gap: 10px;
+        text-align: center;
         width: 100%;
     }
     .infoCard p {
         font-weight: 500;
+        padding: 1rem;
     }
     .three-col-cards {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        display: flex;
+        flex-wrap: wrap;
         justify-items: center;
+        justify-content: space-evenly;
         width: 100%;
     }
-
+    .heyThere {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin: 3rem 0 auto;
+    }
+    .heyThere div {
+        display: flex;
+        gap: 2.5rem;
+    }
+    .heyThere p {
+        text-align: center;
+        max-width: 830px;
+    }
+    .colorBlock {
+        background: linear-gradient(180deg, #F9ECCF 24.48%, #dec188 78.71%, #B8985A 98%);
+        bottom: -700px;
+        height: 450px;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+    .two-col-spec p {
+        font-size: 26px;
+        max-width: 68rem;
+        margin: 1rem;
+    }
+    .special_image {
+        mix-blend-mode: multiply;
+        position: absolute;
+        right: 20px;
+        top: 230px;
+        size: 400px;
+        z-index: -1;
+    }
 </style>

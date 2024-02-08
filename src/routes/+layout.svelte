@@ -9,8 +9,10 @@
 <script>
     import '/src/style.css';
 	import Header from '$lib/Header.svelte';
-    import Icon from '@iconify/svelte';
+    import Footer from '../lib/Footer.svelte';
 </script>
 <Header />
 
 <slot></slot>
+
+<Footer />

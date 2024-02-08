@@ -18,22 +18,29 @@
 
 html {
     background-image: url(/src/lib/assets/white_brick_bg_20.png);
-    background-repeat:round;
+    background-repeat: repeat;
 }
 
 /* Text Styles */
 h1 {
     font-family: 'HeyNovember';
     font-size: 2.125rem;
-    margin: 1rem;
+    margin: 1rem 0;
+    font-weight: 200;
+	letter-spacing: .1em;
 }
 h2 {
     font-family: 'HeyNovember';
-    font-size: .875rem;
+    font-size: 1.875rem;
 }
 h3 {
     font-family: 'Darker Grotesque';
     font-size: 2.125rem;
+    font-weight: 800;
+}
+h4 {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 2rem;
     font-weight: 800;
 }
 h5 {
@@ -50,13 +57,22 @@ p {
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 1.125rem;
     font-weight: 400;
-    margin: 1rem;
+    line-height: 1.5rem;
 }
 a {
     text-decoration: none;
 }
 ul {
     list-style: none;
+}
+li {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+hr {
+    height: 2px;
+    margin-bottom: 20px;;
 }
 .wt_text {
 color: white;
@@ -72,4 +88,55 @@ color: white;
 .dark_bg {
     background-color: var(--dark-grey);
     color: var(--light-cream);
-    }
+}
+.bg_none {
+    background-color: transparent;
+    color: var(--dark-grey);
+}
+
+button {
+    align-items: center;
+    background-color: var(--dark-grey);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px 20px;
+    width: fit-content;
+}
+.button-stroke {
+    align-items: center;
+    border: 1px solid var(--dark-grey);
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px 20px;
+}
+.flexbox {
+    display: flex;
+    flex-direction: row;
+}
+/* spacing */
+.m1 {
+    margin: 1rem;
+}
+.m2 {
+    margin: 2rem;
+}
+.ml1 {
+    margin-left: 1rem;
+}
+.ml2 {
+    margin-left: 2rem;
+}
+.ml3 {
+    margin-left: 3rem;
+}
+/* Grid */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
