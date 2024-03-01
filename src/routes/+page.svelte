@@ -30,12 +30,13 @@
 
     </ul>
 </div>
+ 
 <div class="productSpace ml3" >
     <h1 id="ProductCategory">  {catname} </h1>
     <p  id="ProductDescription"> {catdescription} </p>
     <div class="productcardHolder ">
     {#if data.productinfo}
-        {#each data.productinfo as { image, product_name, price }}
+        {#each data.productinfo as { product_name, price, image }}
             <div class="productDisplay dark_bg">
                 <img src={image} alt={product_name} >
                 <div>
@@ -100,8 +101,9 @@
         z-index: 30;
     }
     .productcardHolder {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
     }
     .productDisplay {
         box-shadow: 0px 4px 4px 0px rgba(59, 59, 59, 0.27), 0px 1px 4px 0px rgba(0, 0, 0, 0.39);
@@ -119,7 +121,7 @@
     }
     .productDisplay img {
         object-fit: cover;
-        width: 150%;
+        width: 120%;
         height: 180px;
     }
 </style>

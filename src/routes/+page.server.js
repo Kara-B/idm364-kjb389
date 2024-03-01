@@ -9,6 +9,7 @@ import { supabase } from '$lib/server/supabase_client';
 export async function load() {
 	const { data } = await supabase.from(PUBLIC_SUPABASE_TABLE).select('*');
 	return {
-		product_info: data ?? []
+		productinfo: data ?? []
 	};
 } 
+
