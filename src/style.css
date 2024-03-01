@@ -19,6 +19,10 @@
 html {
     background-image: url(/src/lib/assets/white_brick_bg_20.png);
     background-repeat: repeat;
+    height: 100%;
+}
+body  {
+    height: 100%;
 }
 
 /* Text Styles */

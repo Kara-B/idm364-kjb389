@@ -1,3 +1,4 @@
+
 <div class="productDisplay dark_bg">
     <img src="https://placehold.jp/268x180.png" alt="" >
     <div>
@@ -13,10 +14,16 @@
         justify-items: center;
         margin: 1.5rem 0 ;
         text-align: center;
-        width: fit-content;
+        overflow: hidden;
+        width: 268px;
     }
     .productDisplay div {
         padding: 1rem;
         width: 100%;
+    }
+    .productDisplay img {
+        object-fit: cover;
+        width: 150%;
+        height: 180px;
     }
 </style>

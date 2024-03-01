@@ -3,9 +3,7 @@
     import Icon from '@iconify/svelte';
 </script>
 <div class="productListCard">
-    <div style="height: 100%; object-fit: cover;">
         <img src="https://placehold.jp/100x100.png" alt="" >
-    </div>
     <div>
         <h6> Product Name </h6>
         <p> $18.00 </p>
@@ -28,8 +26,12 @@
         gap: 1rem;
         background-color: #f9f9f9;
         box-shadow: 0px 5px 2.4px 0px rgba(0, 0, 0, 0.07), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        object-fit: cover;
         width: 500px;
         padding-right: 1.5rem;
+    }
+    .productListCard img {
+        height: 100%;
     }
     .itemCounter {
         padding: 0;

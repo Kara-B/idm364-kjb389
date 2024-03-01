@@ -2,12 +2,15 @@
     import HeaderTwo from "$lib/HeaderTwo.svelte";
     import Icon from '@iconify/svelte';
 </script>
+<svelte:head> 
+    <title> Wickhead | About Us </title>
+</svelte:head>
 <HeaderTwo />
-<div class="m2 ml3 two-col-spec">
-    <div>
+<div class="m2 ml3 special_image_grid">
+    <div class="two-col-spec">
         <h3> Weird- but it makes Scents</h3>
-        <p> Since the dawn of wax, candles have always found their space. Whether its creating holiday aromas in your home, preparing for a romantic proposal, or even as a last minute mother&#39;s day gifts, the variety of uses is endless...but what about making candles purely for fun? </p>
-        <p> Our founder Randal Wickman built this company around the core concept of candles meant for lighthearted fun. These aren&#39;t your grandma&#39;s clean linen or cinnamon, our candles are about experimenting and delighting with something unique. We want to make you do a double take when you light our candles, maybe it takes a whiff or two before you come around to it. In the end, you should experience something *new*. Out with the traditional, and in with the experimental, its the only way we can create new art 🔥 </p>
+        <p> Since the dawn of wax, candles have always found their space. Whether its creating holiday aromas in your home, preparing for a romantic proposal, or as a last minute mother&#39;s day gifts, the variety of uses is endless...but what about making them just for fun? </p>
+        <p> Our founder Randal Wickman built this company around the core concept of shits and giggles. These aren&#39;t your grandma&#39;s clean linen and cinnamon, our candles are about experimenting and delighting with something unique. We want to make you do a double take when you light our candles, maybe it takes a whiff or two before you come around to it. In the end, the goal is creating *new* experiences. We say out with the traditional, and in with the experimental! Let's fuck around, and find out 🔥 </p>
     </div>
     <div class="special_image">
         <img src="/src/lib/assets/bw_candles_graphic.png" alt="A graphic of a variety of candles."> 
@@ -22,7 +25,7 @@
             <Icon icon="fa-solid:leaf"  style="color: #282828 ; font-size: 55px" />
             <h2> Eco-Friendly & Sustainable </h2>
         </div>
-        <p> Made with Soy Wax and Bio-degradable materials, WickHeads were made to be not just fun- but environmentally concsious </p>
+        <p> Made with Soy Wax and Bio-degradable materials, WickHeads were made to be not just fun- but environmentally conscious </p>
     </div>
     <div class="infoCard">
         <div class="secondary_bg ">
@@ -110,12 +113,11 @@
         max-width: 68rem;
         margin: 1rem;
     }
-    .special_image {
-        mix-blend-mode: multiply;
-        position: absolute;
+    .special_image_grid {
+        display: grid;
+        grid-template-columns: 70% 30%;
         right: 20px;
         top: 230px;
-        size: 400px;
         z-index: -1;
     }
 </style>

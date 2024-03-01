@@ -1,25 +1,28 @@
 <script> 
-import HeaderTwo from "$lib/HeaderTwo.svelte";
-let selectedSize = "L";
-let count = 0;
-function selectSize(size) {
-    selectedSize = size;
-}
+    import HeaderTwo from "$lib/HeaderTwo.svelte";
+    let selectedSize = "R";
+    let count = 0;
+    let productName = "candlename";
+    function selectSize(size) {
+        selectedSize = size;
+    }
 </script>
 <HeaderTwo />
-
+<svelte:head>
+    <title> Wickhead | {productName} </title>
+</svelte:head>
 <main class="two-col">
     <div>
         <img src="https://via.placeholder.com/300x400" alt="placeholder" />
     </div>
-    <div>
-        <h1> Product Name </h1>
-        <h4> $18.00 </h4>
+    <div class="right_side">
+        <h1> {productName} </h1>
+        <h5> $18.00 </h5>
         <p> This is a product description. It should be a little longer than the title, but not too long. </p>
         <div class="chooseSize button-stroke"> 
-            <button class:active={selectedSize === "S"} on:click={() => selectSize("S")} on:keydown={(e) => {if (e.key === 'Enter') selectSize("S")}}>S</button>
-            <button class:active={selectedSize === "L"} on:click={() => selectSize("L")} on:keydown={(e) => {if (e.key === 'Enter') selectSize("L")}}>L</button>
-            <button class:active={selectedSize === "XL"} on:click={() => selectSize("XL")} on:keydown={(e) => {if (e.key === 'Enter') selectSize("XL")}}>XL</button>
+            <button class="bg_none" class:active={selectedSize === "S"} on:click={() => selectSize("S")} on:keydown={(e) => {if (e.key === 'Enter') selectSize("S")}}>S</button>
+            <button class="bg_none" class:active={selectedSize === "R"} on:click={() => selectSize("R")} on:keydown={(e) => {if (e.key === 'Enter') selectSize("R")}}>R</button>
+            <button class="bg_none" class:active={selectedSize === "XL"} on:click={() => selectSize("XL")} on:keydown={(e) => {if (e.key === 'Enter') selectSize("XL")}}>XL</button>
         </div>
         <div class="flexbox"> 
             <div class="itemCounter button-stroke"> 
@@ -61,5 +64,9 @@ function selectSize(size) {
         display: flex;
         gap: 1rem;
     }
-  
+  .right_side {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 </style>
