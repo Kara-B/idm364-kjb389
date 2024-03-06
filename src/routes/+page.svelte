@@ -41,7 +41,7 @@
                 <img src={image} alt={product_name} >
                 <div>
                     <h5> {product_name} </h5>
-                    <p> {price} </p>
+                    <p> {price}.00 </p>
                 </div>
             </div>
         {/each}
@@ -112,6 +112,7 @@
         justify-items: center;
         margin: 1.5rem 0 ;
         text-align: center;
+        transition: transform ease-in-out .3s;
         overflow: hidden;
         width: 268px;
     }
@@ -123,5 +124,10 @@
         object-fit: cover;
         width: 120%;
         height: 180px;
+    }
+    .productDisplay:hover {
+        box-shadow: 0px 4px 4px 0px rgba(59, 59, 59, 0.27), 0px 1px 4px 0px rgba(0, 0, 0, 0.39);
+        cursor: pointer;
+        transform: scale(1.05);
     }
 </style>
