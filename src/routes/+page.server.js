@@ -2,7 +2,7 @@ import { PUBLIC_SUPABASE_TABLE } from '$env/static/public';
 import { supabase } from '$lib/server/supabase_client';
 
 /**
- * Loads products from the 'product_info' table in Supabase.
+ * Loads products from the 'productinfo' table in Supabase.
  * @async
  * @returns {Promise<{ productinfo: Product[] }>} The product info.
  */

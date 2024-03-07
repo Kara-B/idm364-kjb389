@@ -1,34 +1,34 @@
-import { PUBLIC_SUPABASE_TABLE } from '$env/static/public';
-import { supabase } from '$lib/server/supabase_client';
+// import { PUBLIC_SUPABASE_TABLE } from '$env/static/public';
+// import { supabase } from '$lib/server/supabase_client';
 
-/**
- * @async {Function} load
- * @returns {{productinfo: {product_name: string, slug: string}[]}} - An object with product array
- */
+// /**
+//  * @async {Function} load
+//  * @returns {{productinfo: {product_name: string, slug: string}[]}} - An object with product array
+//  */
 
 
-export function load() {
-    return {
+// export function load() {
+//     return {
     
-    }
-};
+//     }
+// };
 
 
 
 
-/**
- * Loads products from the 'product_info' table in Supabase.
- * @async
- * @returns {Promise<{ productinfo: Product[] }>} The product info.
- */
+// /**
+//  * Loads products from the 'product_info' table in Supabase.
+//  * @async
+//  * @returns {Promise<{ productinfo: Product[] }>} The product info.
+//  */
 
-export async function load() {
-	const { data } = await supabase.from(PUBLIC_SUPABASE_TABLE).select('*');
-	return {
-		productinfo: data ?? [],
-	};
+// export async function load() {
+// 	const { data } = await supabase.from(PUBLIC_SUPABASE_TABLE).select('*');
+// 	return {
+// 		productinfo: data ?? [],
+// 	};
 
-} 
+// } 
 
 // Starting over again,traight from Phil's Code:
 // import { slugify } from '$lib/utils';
