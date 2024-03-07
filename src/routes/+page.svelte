@@ -27,9 +27,10 @@
             catname = "H*t T*pic";
             catdescription = "You like D&D, Audrey Hepburn, Fangoria, Harry Houdini, and croquet. You can’t swim, you can’t dance, and you don’t know karate. Face it. You’re never gonna make it.";
         }} aria-label="H*t T*pic">  H*t T*pic </button>
-
     </ul>
 </div>
+
+
  
 <div class="productSpace ml3" >
     <h1 id="ProductCategory">  {catname} </h1>
@@ -37,6 +38,7 @@
     <div class="productcardHolder ">
     {#if data.productinfo}
         {#each data.productinfo as { product_name, price, image }}
+        <a href="https://www.google.com">
             <div class="productDisplay dark_bg">
                 <img src={image} alt={product_name} >
                 <div>
@@ -44,13 +46,11 @@
                     <p> {price}.00 </p>
                 </div>
             </div>
+        </a>
+
         {/each}
 {/if}
-          <!-- this will become an each block -->
-        <!-- <ProductCard /> 
-        <ProductCard /> 
-        <ProductCard /> 
-        <ProductCard />  -->
+
    </div>
        
     </div>

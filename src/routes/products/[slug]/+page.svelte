@@ -2,23 +2,39 @@
     import HeaderTwo from "$lib/HeaderTwo.svelte";
     let selectedSize = "R";
     let count = 0;
-    let productName = "candlename";
+    export let data;
     function selectSize(size) {
         selectedSize = size;
     }
+     /**
+   * @typedef {Object} Product
+   * @property {string} product_name - The name of the product.
+   * @property {string} price - The price of the product.
+   * @property {string} description - The product's description.
+   * @property {string} image - The product image.
+   */
+
+  /**
+   * @typedef {Object} Data
+   * @property {Product} productinfo - The product data.
+   */
+
+  /** @type {Data} */
+
+  const { product_name, price, description, image } = data.product;
 </script>
 <HeaderTwo />
 <svelte:head>
-    <title> Wickhead | {productName} </title>
+    <title> Wickhead | {product_name} </title>
 </svelte:head>
 <main class="two-col">
     <div>
-        <img src="https://via.placeholder.com/300x400" alt="placeholder" />
+        <img src="{image}" alt={productName} />
     </div>
     <div class="right_side">
         <h1> {productName} </h1>
-        <h5> $18.00 </h5>
-        <p> This is a product description. It should be a little longer than the title, but not too long. </p>
+        <h5> {price}.00 </h5>
+        <p> {description} </p>
         <div class="chooseSize button-stroke"> 
             <button class="bg_none" class:active={selectedSize === "S"} on:click={() => selectSize("S")} on:keydown={(e) => {if (e.key === 'Enter') selectSize("S")}}>S</button>
             <button class="bg_none" class:active={selectedSize === "R"} on:click={() => selectSize("R")} on:keydown={(e) => {if (e.key === 'Enter') selectSize("R")}}>R</button>

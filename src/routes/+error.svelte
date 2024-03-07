@@ -1,6 +1,7 @@
 <script context="module">
-  import { status } from '@sveltejs/kit';
   import ErrorPage from '$lib/ErrorPage.svelte';
 </script>
-
-  <ErrorPage {status} />
+<svelte:head> 
+    <title> Wickhead | 404 </title>
+</svelte:head>
+  <ErrorPage />

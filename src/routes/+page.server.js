@@ -6,10 +6,12 @@ import { supabase } from '$lib/server/supabase_client';
  * @async
  * @returns {Promise<{ productinfo: Product[] }>} The product info.
  */
+
 export async function load() {
 	const { data } = await supabase.from(PUBLIC_SUPABASE_TABLE).select('*');
 	return {
-		productinfo: data ?? []
+		productinfo: data ?? [],
 	};
 } 
+
 
