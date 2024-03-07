@@ -1,7 +1,6 @@
 // src/routes/[slug]/+page.server.js
 import { error } from '@sveltejs/kit';
 import { slugify } from '$lib/utils.js';
-import {data} from '$lib/utils.js';
 console.log (data);
 /**
  * Load a team based on the provided parameters.
