@@ -1,5 +1,7 @@
 <script lang="js">
-  import ProductCard from "$lib/ProductCard.svelte";
+    import ProductCard from "$lib/ProductCard.svelte";
+    import logo from "$lib/assets/wickhead_logo.svg";
+    import mascot from "$lib/assets/misswick.svg";
 
     export let catname = "The classics";
     export let catdescription ="We're not your typical candle shop, but these are as typical as they'll get. Don't knock em' till you try em'";
@@ -12,8 +14,8 @@
     <title> Wickhead | Products </title>
 </svelte:head>
 <div class="hero">
-    <img id="WickheadLogo" src="$lib/assets/wickhead_logo.svg" alt="Wickhead Logo">
-    <img id="MissWick" src="$lib/assets/misswick.svg" alt="A melted head made of wax with a lit wick coming out of it.">
+    <img id="WickheadLogo" src={logo} alt="Wickhead Logo">
+    <img id="MissWick" src={mascot} alt="A melted head made of wax with a lit wick coming out of it.">
 </div>
 <div class="subnav">
     <ul>
