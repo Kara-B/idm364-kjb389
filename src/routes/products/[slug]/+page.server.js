@@ -1,7 +1,8 @@
 // src/routes/[slug]/+page.server.js
 import { error } from '@sveltejs/kit';
 import { slugify } from '$lib/utils.js';
-export let data;
+import {data} from '$lib/utils.js';
+console.log (data);
 /**
  * Load a team based on the provided parameters.
  *
@@ -12,7 +13,11 @@ export let data;
  * @throws Will throw an error if the team is not found.
  */
 export function load({ params }) {
-  const product = productinfo.find((product) => slugify(product.name) === params.slug);
+  const slug = params.slug;
+  const candle = {
+    slug: slugify(candle.product_name)
+  };
+
 
   if (!product) throw error(404);
 
