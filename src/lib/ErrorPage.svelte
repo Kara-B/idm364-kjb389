@@ -5,7 +5,7 @@
     <h1> {status} </h1>
     <h1 >Something Smells Funny... </h1>
     <p> Looks like that page couldn’t be found, let’s clear the air? </p>
-    <button> View Our Candles </button>
+    <a href="/">  <button> View Our Candles </button> </a> 
 </div>
  
   <style>

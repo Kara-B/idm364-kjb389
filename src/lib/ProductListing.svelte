@@ -1,38 +1,25 @@
 <script> 
-    import HeaderTwo from "$lib/HeaderTwo.svelte";
     let selectedSize = "R";
     let count = 0;
     export let data;
+    export let image;
+    export let description;
+    export let product_name;
+    export let price;
     function selectSize(size) {
         selectedSize = size;
     }
-     /**
-   * @typedef {Object} Product
-   * @property {string} product_name - The name of the product.
-   * @property {string} price - The price of the product.
-   * @property {string} description - The product's description.
-   * @property {string} image - The product image.
-   */
-
-  /**
-   * @typedef {Object} Data
-   * @property {Product} productinfo - The product data.
-   */
-
-  /** @type {Data} */
-
-  const { product_name, price, description, image } = data.product;
+    console.log(data);
 </script>
-<HeaderTwo />
 <svelte:head>
     <title> Wickhead | {product_name} </title>
 </svelte:head>
 <main class="two-col">
     <div>
-        <img src="{image}" alt={productName} />
+        <img src="{image}" alt={product_name} />
     </div>
     <div class="right_side">
-        <h1> {productName} </h1>
+        <h1> {product_name} </h1>
         <h5> {price}.00 </h5>
         <p> {description} </p>
         <div class="chooseSize button-stroke"> 

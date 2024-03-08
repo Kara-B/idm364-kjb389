@@ -2,7 +2,6 @@
     import ProductCard from "$lib/ProductCard.svelte";
     import logo from "$lib/assets/wickhead_logo.svg";
     import mascot from "$lib/assets/misswick.svg";
-
     export let catname = "The classics";
     export let catdescription ="We're not your typical candle shop, but these are as typical as they'll get. Don't knock em' till you try em'";
     export let data;
@@ -11,7 +10,7 @@
     }
 </script>
 <svelte:head> 
-    <title> Wickhead | Products </title>
+    <title> Wickhead | Home </title>
 </svelte:head>
 <div class="hero">
     <img id="WickheadLogo" src={logo} alt="Wickhead Logo">
@@ -41,8 +40,8 @@
     <p  id="ProductDescription"> {catdescription} </p>
     <div class="productcardHolder ">
     {#if data.productinfo}
-        {#each data.productinfo as { product_name, price, image, slug }}
-         <ProductCard {product_name} {price} {image} {slug}/>
+        {#each data.productinfo as { product_name, price, image, id }}
+         <ProductCard {product_name} {price} {image} {id}/>
         {/each}
 {/if}
 

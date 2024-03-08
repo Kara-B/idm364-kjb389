@@ -2,10 +2,9 @@
   export let image;
   export let product_name;
   export let price;
-  export let slug;
   export let id;
 </script>
-<a href="/products/{slug}" >
+<a href="/products{id}">
     <div class="productDisplay dark_bg">
     <img src={image} alt={product_name} >
     <div>
