@@ -1,11 +1,11 @@
 <script> 
     let selectedSize = "R";
     let count = 0;
-    export let data;
     export let image;
-    export let description;
+    export let data;
     export let product_name;
     export let price;
+    export let description;
     function selectSize(size) {
         selectedSize = size;
     }

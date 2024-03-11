@@ -4,4 +4,4 @@
 <svelte:head> 
     <title> Wickhead | 404 </title>
 </svelte:head>
-  <ErrorPage />
+  <ErrorPage  />

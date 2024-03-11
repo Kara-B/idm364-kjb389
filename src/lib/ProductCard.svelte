@@ -4,7 +4,7 @@
   export let price;
   export let id;
 </script>
-<a href="/products{id}">
+<a href="/products/{id}">
     <div class="productDisplay dark_bg">
     <img src={image} alt={product_name} >
     <div>

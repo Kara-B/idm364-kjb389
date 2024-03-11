@@ -1,34 +1,28 @@
 <script> 
-    import HeaderTwo from "$lib/HeaderTwo.svelte";
-    import ProductListing from "$lib/ProductListing.svelte";
-    import { supabase } from '$lib/server/supabase_client.js';
-    
+  import HeaderTwo from "$lib/HeaderTwo.svelte";
+  // import ProductListing from "$lib/ProductListing.svelte";
   import { onMount } from 'svelte';
-  
-  export let id;
-  
-  let product = {};
-  
-  onMount(async () => {
-    const { data, error } = await supabase
-      .from('productinfo')
-      .select('*')
-      .eq('id', id)
-      .single();
 
-    if (data) {
-      product = data;
-    } else {
-      console.error(error);
-    }
-  });
+let product = {};
+onMount(async (params) => {
+  const {id} = params;
+  const { data, error } = await supabase
+    .from('productinfo')
+    .select('*')
+    .eq('id', id)
+    .single();
+  if (data) {
+    product = data;
+  } else {
+    console.error(error);
+  }
+});
 </script>
-    
-<!-- <HeaderTwo /> -->
+  
+<HeaderTwo />
 
 <!-- <ProductListing /> -->
 <div>
-    <h1>{product.product_name}</h1>
-    <!-- Show other details -->
-  </div>
-
+  <h1>{product.product_name}</h1>
+  <!-- Show other details -->
+</div>
