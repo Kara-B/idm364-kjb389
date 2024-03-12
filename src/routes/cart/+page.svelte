@@ -56,7 +56,7 @@
         <p> Sales Tax: </p>
         <h5> Total: {itemTotal} </h5>
     </div>
-    <img class="absoluteGraphic" src="/src/lib/assets/misswick1.svg" alt="">
+    <img class="absoluteGraphic" src="https://res.cloudinary.com/dsylo3btg/image/upload/v1710217494/candles/misswick_q6dlxl.svg" alt="">
 </div>
 
 
