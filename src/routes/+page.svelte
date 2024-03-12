@@ -48,20 +48,7 @@
       catdescription = description;
       filterProducts(dbCategoryName);
     }
-  
     
-  
-    // onMount(async () => {
-    //   const { data, error } = await supabase
-    //     .from('productinfo')
-    //     .select('*');
-  
-    //   if (error) {
-    //     console.error('Error fetching products:', error);
-    //   } else {
-    //     products = data;
-    //   }
-    // });
     function formatPrice(price) {
       const numericPrice = Number(price);
       const formattedPrice = numericPrice.toFixed(2);
