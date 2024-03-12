@@ -13,7 +13,7 @@
         <p> Our founder Randal Wickman built this company around the core concept of shits and giggles. These aren&#39;t your grandma&#39;s clean linen and cinnamon, our candles are about experimenting and delighting with something unique. We want to make you do a double take when you light our candles, maybe it takes a whiff or two before you come around to it. In the end, the goal is creating *new* experiences. We say out with the traditional, and in with the experimental! Let's fuck around, and find out 🔥 </p>
     </div>
     <div class="special_image">
-        <img src="/src/lib/assets/bw_candles_graphic.png" alt="A graphic of a variety of candles."> 
+        <img src="https://res.cloudinary.com/dsylo3btg/image/upload/v1710217493/candles/bw_candles_graphic_jxb4l9.png" alt="A graphic of a variety of candles."> 
     </div>
 </div>
 

@@ -1,6 +1,6 @@
 <div>
-    <img class="bg" src="/src/lib/assets/hero_banner.png" alt="">
-    <img class="accent" src="/src/lib/assets/wickhead_lg_banner.svg" alt="">
+    <img class="bg" src="https://res.cloudinary.com/dsylo3btg/image/upload/v1710217494/candles/hero_banner_gzixjv.png" alt="">
+    <img class="accent" src="https://res.cloudinary.com/dsylo3btg/image/upload/v1710217493/candles/wickhead_lg_banner_l1lmkp.svg" alt="">
 </div>
 
 <style>

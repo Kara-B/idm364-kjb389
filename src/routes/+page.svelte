@@ -4,7 +4,6 @@
     import { onMount } from 'svelte';
     import { supabase } from '$lib/supabase';
     import logo from "$lib/assets/wickhead_logo.svg";
-    import mascot from "$lib/assets/misswick.svg";
   
     let products = [];
     let filteredProducts = [];
@@ -76,7 +75,7 @@
   
   <div class="hero">
       <img id="WickheadLogo" src={logo} alt="Wickhead Logo">
-      <img id="MissWick" src={mascot} alt="A melted head made of wax with a lit wick coming out of it.">
+      <img id="MissWick" src="https://res.cloudinary.com/dsylo3btg/image/upload/v1710217494/candles/misswick_q6dlxl.svg" alt="A melted head made of wax with a lit wick coming out of it.">
   </div>
   <div class="subnav">
     <ul>
