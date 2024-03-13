@@ -3,7 +3,6 @@
     import ProductCardList from '$lib/ProductCardList.svelte';
     import { cart } from '$lib/cartStore.js';
     import Icon from '@iconify/svelte';
-    let itemTotal = 0;
     function formatPrice(price) {
         const numericPrice = Number(price);
         const formattedPrice = numericPrice.toFixed(2);
@@ -16,6 +15,7 @@
         }); 
         return formatPrice(total);
     } 
+    let itemTotal = $cart.length;
 
 </script>
 <svelte:head>
@@ -59,8 +59,8 @@
     </div>
     <div class="totalsDiv" style="margin-top: 2rem;">
         <p> Item(s): {itemTotal} </p>
-        <p> Subtotal: {itemTotal} </p>
-        <p> Shipping: </p>
+        <p> Subtotal: {cartTotal()} </p>
+        <p> Shipping: Free, but only for you! </p>
         <p> Sales Tax: </p>
         <h5> Total: {cartTotal()} </h5>
         <button> Checkout </button>
