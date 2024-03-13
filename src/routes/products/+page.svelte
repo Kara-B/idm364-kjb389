@@ -9,6 +9,7 @@
   import { supabase } from '$lib/supabase';
   import { get } from 'svelte/store';
   import { cart } from '$lib/cartStore.js';
+  import Icon from '@iconify/svelte';
 import HeaderTwo from '$lib/HeaderTwo.svelte';
   let selectedSize = "R";
   let count = 1;
@@ -17,7 +18,16 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
   }
 
   let productDetails = {};
+  function showToast() {
+    // Get the snackbar DIV
+    var toast = document.getElementById("snackbar");
 
+    // Add the "show" class to DIV
+    toast.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+} 
   onMount(async () => {
     const queryParams = get(page).url.searchParams;
     const productId = queryParams.get('id');
@@ -85,7 +95,12 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
           </div>
           <button class="dark_bg" on:click={addToCart}> Add to Cart </button>
       </div>
-      
+  </div>
+  <div id="toast"> 
+    <h6> Added to Cart!  </h6>
+    <button class="bg_none">
+      <Icon icon="gg:close-o" />
+    </button>
   </div>
 </main>
 {:else}
@@ -134,4 +149,14 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
     width: 100%;
     height: auto;
   }
+  #toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    color: var(--dark-grey);
+  }
+  
 </style>

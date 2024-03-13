@@ -3,8 +3,8 @@
     console.log(data); 
 </script>
 
-    + <slot>
-    + </slot>
+    <slot>
+    </slot>
 
 
     

@@ -9,6 +9,14 @@
         const formattedPrice = numericPrice.toFixed(2);
         return `$${formattedPrice}`;
     }
+    function cartTotal() {
+        let total = 0;
+        $cart.forEach(item => {
+            total += item.price * item.quantity;
+        }); 
+        return formatPrice(total);
+    } 
+
 </script>
 <svelte:head>
     <title> Wickhead | Cart ({itemTotal}) </title>
@@ -54,7 +62,8 @@
         <p> Subtotal: {itemTotal} </p>
         <p> Shipping: </p>
         <p> Sales Tax: </p>
-        <h5> Total: {itemTotal} </h5>
+        <h5> Total: {cartTotal()} </h5>
+        <button> Checkout </button>
     </div>
     <img class="absoluteGraphic" src="https://res.cloudinary.com/dsylo3btg/image/upload/v1710217494/candles/misswick_q6dlxl.svg" alt="">
 </div>

@@ -48,7 +48,7 @@
       catdescription = description;
       filterProducts(dbCategoryName);
     }
-    
+
     function formatPrice(price) {
       const numericPrice = Number(price);
       const formattedPrice = numericPrice.toFixed(2);
@@ -76,8 +76,8 @@
   
   
   <div class="productSpace ml3" >
-    <h1 id="ProductCategory">-</h1>
-    <p  id="ProductDescription"></p>
+    <h1 id="ProductCategory"> {catname}</h1>
+    <p  id="ProductDescription"> {catdescription}</p>
     <div class="productcardHolder">
       {#each filteredProducts as product}
           <a href="/products?id={product.id}">
