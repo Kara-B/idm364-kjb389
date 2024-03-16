@@ -18,16 +18,27 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
   }
 
   let productDetails = {};
-  function showToast() {
-    // Get the snackbar DIV
-    var toast = document.getElementById("snackbar");
+//   function showToast() {
+//     // Get the snackbar DIV
+//     var toast = document.getElementById("snackbar");
 
-    // Add the "show" class to DIV
-    toast.className = "show";
+//     // Add the "show" class to DIV
+//     toast.className = "show";
 
-    // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
-} 
+//     // After 3 seconds, remove the show class from DIV
+//     setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+// } 
+// function hideToast() {
+//   var toast = document.getElementById("toast");
+//   toast.className = "hide";
+//   setTimeout(function(){ toast.className = toast.className.replace("hide", ""); }, 3000);
+// } 
+// function showToast() {
+//     var toast = document.getElementById("toast");
+//     toast.className = "show";
+//     setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+// };
+
   onMount(async () => {
     const queryParams = get(page).url.searchParams;
     const productId = queryParams.get('id');
@@ -96,12 +107,12 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
           <button class="dark_bg" on:click={addToCart}> Add to Cart </button>
       </div>
   </div>
-  <div id="toast"> 
+  <!-- <div id="toast"> 
     <h6> Added to Cart!  </h6>
-    <button class="bg_none">
-      <Icon icon="gg:close-o" />
+    <button class="bg_none" on:click={hideToast}>
+      <Icon icon="gg:close-o" width="30" height="30"  style="color: #F9ECCF; padding: 0;" />
     </button>
-  </div>
+  </div> -->
 </main>
 {:else}
   <p>Loading product details...</p>
@@ -149,14 +160,23 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
     width: 100%;
     height: auto;
   }
-  #toast {
+  /* #toast {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 200px;
     padding: 1rem;
-    background-color: var(--secondary-color);
-    color: var(--dark-grey);
+    background-color: var(--primary-color);
+    color: var(--light-cream);
   }
-  
+  .show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s linear;
+  }
+  .hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+  } */
 </style>

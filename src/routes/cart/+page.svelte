@@ -1,6 +1,5 @@
 <script>
     import HeaderTwo from '$lib/HeaderTwo.svelte';
-    import ProductCardList from '$lib/ProductCardList.svelte';
     import { cart } from '$lib/cartStore.js';
     import Icon from '@iconify/svelte';
     function formatPrice(price) {
@@ -15,6 +14,7 @@
         }); 
         return formatPrice(total);
     } 
+
     let itemTotal = $cart.length;
 
 </script>
@@ -35,9 +35,9 @@
                     <h5> {item.product_name} - {formatPrice(item.price)} </h5>
                     <div>
                         <div class="itemCounter button-stroke">
-                            <button class="bg_none" on:click={() => item.quantity--} on:keydown={(e) => {if (e.key === 'Enter') item.quantity--}}>-</button>
-                                <p> {item.quantity} </p>
-                            <button class="bg_none" on:click={() => item.quantity++} on:keydown={(e) => {if (e.key === 'Enter') item.quantity++}}>+</button>
+                            <!-- <button class="bg_none" on:click={() => item.quantity--} on:keydown={(e) => {if (e.key === 'Enter') item.quantity--}}>-</button> -->
+                                <p> Quantity: {item.quantity} </p>
+                            <!-- <button class="bg_none" on:click={() => item.quantity++} on:keydown={(e) => {if (e.key === 'Enter') item.quantity++}}>+</button> -->
                         </div>
                        <div class="dark_bg itemsize">
                             {item.size}
@@ -58,10 +58,10 @@
         {/if}
     </div>
     <div class="totalsDiv" style="margin-top: 2rem;">
-        <p> Item(s): {itemTotal} </p>
-        <p> Subtotal: {cartTotal()} </p>
-        <p> Shipping: Free, but only for you! </p>
-        <p> Sales Tax: </p>
+        <p> Item(s): <strong> {itemTotal} </strong> </p>
+        <p> Subtotal: <strong> {cartTotal()} </strong> </p>
+        <p> Shipping: <strong> Free, but only for you! </strong></p>
+        <p> Sales Tax: {cartTotal()} </p> 
         <h5> Total: {cartTotal()} </h5>
         <button> Checkout </button>
     </div>
