@@ -2,21 +2,45 @@
     import HeaderTwo from '$lib/HeaderTwo.svelte';
     import { cart } from '$lib/cartStore.js';
     import Icon from '@iconify/svelte';
+    let subtotal = 0;
+    $: {
+        subtotal = $cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    }
     function formatPrice(price) {
         const numericPrice = Number(price);
         const formattedPrice = numericPrice.toFixed(2);
         return `$${formattedPrice}`;
     }
-    function cartTotal() {
-        let total = 0;
-        $cart.forEach(item => {
-            total += item.price * item.quantity;
-        }); 
-        return formatPrice(total);
-    } 
 
-    let itemTotal = $cart.length;
+$: itemTotal = $cart.reduce((total, item) => total + item.quantity, 0);
+$: tax = subtotal * .06;
+$: fullTotal = subtotal + tax;
 
+function decrementCount(itemId) {
+    cart.update(items => {
+        return items.map(item => {
+            if (item.id === itemId && item.quantity > 1) {
+                item.quantity -= 1;
+            }
+            return item;
+        });
+    });
+}
+
+function incrementCount(itemId) {
+    cart.update(items => {
+        return items.map(item => {
+            if (item.id === itemId) {
+                item.quantity += 1;
+            }
+            return item;
+        });
+    });
+}
+
+console.log("this is cart")
+console.log($cart);
+  
 </script>
 <svelte:head>
     <title> Wickhead | Cart ({itemTotal}) </title>
@@ -35,10 +59,10 @@
                     <h5> {item.product_name} - {formatPrice(item.price)} </h5>
                     <div>
                         <div class="itemCounter button-stroke">
-                            <!-- <button class="bg_none" on:click={() => item.quantity--} on:keydown={(e) => {if (e.key === 'Enter') item.quantity--}}>-</button> -->
-                                <p> Quantity: {item.quantity} </p>
-                            <!-- <button class="bg_none" on:click={() => item.quantity++} on:keydown={(e) => {if (e.key === 'Enter') item.quantity++}}>+</button> -->
-                        </div>
+                            <button class="bg_none" on:click={decrementCount(item.id)}>-</button>
+                                <p>{item.quantity}</p>
+                            <button class="bg_none" on:click={incrementCount(item.id)}>+</button>
+                            </div>
                        <div class="dark_bg itemsize">
                             {item.size}
                        </div> 
@@ -53,23 +77,23 @@
         {/each}
 
         {:else}
-        <p>Your cart is still empty, let's fill it up?</p>
-        <a href="/"> <button> Shop now </button> </a>
+        <div class= "centerDiv">
+            <p class="wt_text">Your cart is still empty, let's fill it up?</p>
+            <a href="/"> <button> Shop now </button> </a>
+        </div>
+       
         {/if}
     </div>
     <div class="totalsDiv" style="margin-top: 2rem;">
         <p> Item(s): <strong> {itemTotal} </strong> </p>
-        <p> Subtotal: <strong> {cartTotal()} </strong> </p>
+        <p> Subtotal: <strong> ${subtotal.toFixed(2)} </strong> </p>
         <p> Shipping: <strong> Free, but only for you! </strong></p>
-        <p> Sales Tax: {cartTotal()} </p> 
-        <h5> Total: {cartTotal()} </h5>
+        <p> Sales Tax: ${tax.toFixed(2)} </p> 
+        <h5> Total: ${fullTotal.toFixed(2)} </h5>
         <button> Checkout </button>
     </div>
     <img class="absoluteGraphic" src="https://res.cloudinary.com/dsylo3btg/image/upload/v1710217494/candles/misswick_q6dlxl.svg" alt="">
 </div>
-
-
-
 <!-- <div class="two_col">
     <div class="cartDiv">
         <h1 class="wt_text"> Your Cart</h1>
@@ -98,7 +122,6 @@
     </div>
     <img class="absoluteGraphic" src="/src/lib/assets/misswick1.svg" alt="">
 </div> -->
-
 
 <style>
     .two_col {

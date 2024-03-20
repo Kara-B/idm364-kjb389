@@ -144,3 +144,11 @@ button {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
+
+.centerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}

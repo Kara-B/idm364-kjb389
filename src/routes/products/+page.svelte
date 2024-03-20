@@ -18,26 +18,12 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
   }
 
   let productDetails = {};
-//   function showToast() {
-//     // Get the snackbar DIV
-//     var toast = document.getElementById("snackbar");
 
-//     // Add the "show" class to DIV
-//     toast.className = "show";
-
-//     // After 3 seconds, remove the show class from DIV
-//     setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
-// } 
-// function hideToast() {
-//   var toast = document.getElementById("toast");
-//   toast.className = "hide";
-//   setTimeout(function(){ toast.className = toast.className.replace("hide", ""); }, 3000);
-// } 
-// function showToast() {
-//     var toast = document.getElementById("toast");
-//     toast.className = "show";
-//     setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
-// };
+function hideToast() {
+  var toast = document.getElementById("toast");
+  toast.style.visibility = "hidden";
+  setTimeout(function(){ toast.style.visibility = toast.style.visibility("hidden", ""); }, 3000);
+} 
 
   onMount(async () => {
     const queryParams = get(page).url.searchParams;
@@ -60,6 +46,11 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
     return `$${formattedPrice}`;
   }
 
+  function showToast() {
+    var toast = document.getElementById("toast");
+    toast.className = "show";
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+  };
   function addToCart() {
     cart.update(items => {
       const productToAdd = {
@@ -68,9 +59,13 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
         image: productDetails.image,
         quantity: count,
         size: selectedSize,
+        id: productDetails.id
       };
       return [...items, productToAdd];
     });
+  }
+  function addToButton(){
+    return [showToast(), addToCart()];
   }
 
   function decrementCount() {
@@ -104,15 +99,18 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
             <p> {count} </p>
             <button class="bg_none" on:click={incrementCount} on:keydown={(e) => {if (e.key === 'Enter') incrementCount()}}>+</button>
           </div>
-          <button class="dark_bg" on:click={addToCart}> Add to Cart </button>
+          <button class="dark_bg" on:click={addToButton}> Add to Cart </button>
       </div>
   </div>
-  <!-- <div id="toast"> 
-    <h6> Added to Cart!  </h6>
-    <button class="bg_none" on:click={hideToast}>
-      <Icon icon="gg:close-o" width="30" height="30"  style="color: #F9ECCF; padding: 0;" />
-    </button>
-  </div> -->
+  <div id="toast">
+      <div class="toast"> 
+        <h6> <a href="/cart"> Added to Cart! ({count}) </a>  </h6>
+        <button class="bg_none" on:click={hideToast}>
+          <Icon icon="gg:close-o" width="30" height="30"  style="color: #282828; padding: 0;" />
+        </button>
+      </div>
+  </div>
+  
 </main>
 {:else}
   <p>Loading product details...</p>
@@ -160,14 +158,20 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
     width: 100%;
     height: auto;
   }
-  /* #toast {
+   #toast {
+    visibility: hidden;
+  }
+  .toast {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    white-space: nowrap;
     width: 200px;
     padding: 1rem;
+    text-decoration: underline;
     background-color: var(--primary-color);
-    color: var(--light-cream);
+    color: var(--dark-grey)
   }
   .show {
     visibility: visible;
@@ -178,5 +182,5 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
-  } */
+  } 
 </style>
