@@ -10,7 +10,7 @@
   import { get } from 'svelte/store';
   import { cart } from '$lib/cartStore.js';
   import Icon from '@iconify/svelte';
-import HeaderTwo from '$lib/HeaderTwo.svelte';
+  import HeaderTwo from '$lib/HeaderTwo.svelte';
   let selectedSize = "R";
   let count = 1;
   function selectSize(size) {
@@ -18,12 +18,6 @@ import HeaderTwo from '$lib/HeaderTwo.svelte';
   }
 
   let productDetails = {};
-
-function hideToast() {
-  var toast = document.getElementById("toast");
-  toast.style.visibility = "hidden";
-  setTimeout(function(){ toast.style.visibility = toast.style.visibility("hidden", ""); }, 3000);
-} 
 
   onMount(async () => {
     const queryParams = get(page).url.searchParams;
@@ -40,17 +34,13 @@ function hideToast() {
       productDetails = data;
     }
   });
+
   function formatPrice(price) {
     const numericPrice = Number(price);
     const formattedPrice = numericPrice.toFixed(2);
     return `$${formattedPrice}`;
   }
 
-  function showToast() {
-    var toast = document.getElementById("toast");
-    toast.className = "show";
-    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
-  };
   function addToCart() {
     cart.update(items => {
       const productToAdd = {
@@ -65,7 +55,11 @@ function hideToast() {
     });
   }
   function addToButton(){
-    return [showToast(), addToCart()];
+    const button = document.getElementById("addToCartButton");
+    button.textContent = "Added to Cart!"+ " (" + count + ")";
+    button.style.backgroundColor = "var(--primary-color)";
+    button.style.color = "var(--dark-grey)";
+    return [addToCart()];
   }
 
   function decrementCount() {
@@ -99,24 +93,28 @@ function hideToast() {
             <p> {count} </p>
             <button class="bg_none" on:click={incrementCount} on:keydown={(e) => {if (e.key === 'Enter') incrementCount()}}>+</button>
           </div>
-          <button class="dark_bg" on:click={addToButton}> Add to Cart </button>
-      </div>
+      
+          <button id="addToCartButton" class="dark_bg" on:click={addToButton}> Add to Cart </button>
+      
+    </div>
+          
   </div>
-  <div id="toast">
-      <div class="toast"> 
-        <h6> <a href="/cart"> Added to Cart! ({count}) </a>  </h6>
-        <button class="bg_none" on:click={hideToast}>
-          <Icon icon="gg:close-o" width="30" height="30"  style="color: #282828; padding: 0;" />
-        </button>
-      </div>
-  </div>
-  
+<!-- <div id="toast">
+<div class="toast"> 
+<Icon icon="simple-line-icons:check" width="30" height="30"  style="color: #282828; padding: 0;" />
+<h6> <a href="/cart"> Added to Cart! ({count}) </a>  </h6>
+</div>
+</div> -->
+
 </main>
 {:else}
   <p>Loading product details...</p>
 {/if}
 
 <style>
+  #addToCartButton {
+    transition: all 3ms ease-in-out;
+  }
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -158,7 +156,7 @@ function hideToast() {
     width: 100%;
     height: auto;
   }
-   #toast {
+   /* #toast {
     visibility: hidden;
   }
   .toast {
@@ -169,11 +167,11 @@ function hideToast() {
     white-space: nowrap;
     width: 200px;
     padding: 1rem;
-    text-decoration: underline;
     background-color: var(--primary-color);
-    color: var(--dark-grey)
-  }
-  .show {
+    color: var(--dark-grey);
+    position: absolute;
+  } */
+  /* .show {
     visibility: visible;
     opacity: 1;
     transition: visibility 0s, opacity 0.5s linear;
@@ -183,4 +181,20 @@ function hideToast() {
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
   } 
+  .toast a {
+    color: var(--dark-grey);
+    text-decoration: none;
+  } */
+  @media (max-width: 800px) {
+    .two-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .main_image_detail_page img {
+    width: 100%;
+    height: auto;
+  }
+  }
 </style>

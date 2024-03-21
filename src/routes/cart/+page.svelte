@@ -64,15 +64,13 @@ console.log($cart);
                             <button class="bg_none" on:click={incrementCount(item.id)}>+</button>
                             </div>
                        <div class="dark_bg itemsize">
-                            {item.size}
+                           <p> {item.size} </p> 
                        </div> 
                         <button class="bg_none" on:click={() => cart.update(items => items.filter(i => i !== item))}>
                             <Icon icon="gridicons:trash"  style="color: #282828 ; font-size: 35px" />
                         </button>
                     </div>
                 </div>
-               
-              
             </div>
         {/each}
 
@@ -81,7 +79,6 @@ console.log($cart);
             <p class="wt_text">Your cart is still empty, let's fill it up?</p>
             <a href="/"> <button> Shop now </button> </a>
         </div>
-       
         {/if}
     </div>
     <div class="totalsDiv" style="margin-top: 2rem;">
@@ -94,34 +91,7 @@ console.log($cart);
     </div>
     <img class="absoluteGraphic" src="https://res.cloudinary.com/dsylo3btg/image/upload/v1710217494/candles/misswick_q6dlxl.svg" alt="">
 </div>
-<!-- <div class="two_col">
-    <div class="cartDiv">
-        <h1 class="wt_text"> Your Cart</h1>
-        <hr>
-        <div class="productListCard">
-            <img src="https://placehold.jp/100x100.png" alt="" >
-        <div>
-            <h6> Product Name </h6>
-            <p> $18.00 </p>
-        </div>
-    
-        <div class="itemCounter button-stroke"> 
-            <button class="bg_none" on:click={() => count--} on:keydown={(e) => {if (e.key === 'Enter') count--}}>-</button>
-            <p> {count} </p>
-            <button class="bg_none" on:click={() => count++} on:keydown={(e) => {if (e.key === 'Enter') count++}}>+</button>
-        </div>
-        <Icon icon="gridicons:trash"  style="color: #282828 ; font-size: 35px" />
-    </div>
-    </div>
-    <div class="totalsDiv" style="margin-top: 2rem;">
-        <p> Item(s): {itemTotal} </p>
-        <p> Subtotal: {itemTotal} </p>
-        <p> Shipping: </p>
-        <p> Sales Tax: </p>
-        <h5> Total: {itemTotal} </h5>
-    </div>
-    <img class="absoluteGraphic" src="/src/lib/assets/misswick1.svg" alt="">
-</div> -->
+
 
 <style>
     .two_col {
@@ -189,4 +159,50 @@ console.log($cart);
         align-items: center;
         padding: 0.5rem 1rem;
     }
+    @media (max-width: 1238px) {
+        .two_col {
+            display: flex;
+        }
+        .cartDiv {
+            max-width: 100%;
+        
+        }
+        .totalsDiv {
+            position: relative;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+        }
+  
+        .absoluteGraphic {
+            display: none;
+        }
+    }
+    @media (max-width: 950px) {
+        .two_col {
+            display: flex;
+            flex-direction: column;
+            overflow-y: hidden;
+        }
+        .productListCard {
+            height: 100px;
+        }
+        .productListCard img {
+            width: 20%;
+        }
+        .product_list_info {
+            flex-direction: row;
+        }
+        .product_list_info div {
+            align-items: center;
+        }
+        .itemCounter {
+            height: 40px;
+            width: 100px;
+        }
+        .cartDiv {
+            padding: 1rem;
+        }
+    }
+		
 </style>

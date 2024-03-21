@@ -72,9 +72,6 @@
     </ul>
   </div>
   
-  
-  
-  
   <div class="productSpace ml3" >
     <h1 id="ProductCategory"> {catname}</h1>
     <p  id="ProductDescription"> {catdescription}</p>
@@ -169,6 +166,25 @@
       }
       a {
           text-decoration: none;
+      }
+      @media (max-width: 1040px) {
+        #MissWick {
+          display: none;
+      }
+      #WickheadLogo {
+          position: absolute;
+          top: 150px;
+          left: -200px;
+          width: 800px;
+          z-index: 5;
+      }
+      .productcardHolder {
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+
       }
   </style>
   
