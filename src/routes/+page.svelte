@@ -173,8 +173,8 @@
       }
       #WickheadLogo {
           position: absolute;
-          top: 25%;
-          width: 100%;
+          top: 20%;
+          width: 95%;
           z-index: 5;
       }
       .productcardHolder {
@@ -183,7 +183,12 @@
           flex-wrap: wrap;
           justify-content: center;
       }
-
-      }
+      .hero {
+          height: 300px;
+        }
+    }
+      @media (max-width: 605px) {
+        
+    } 
   </style>
   
