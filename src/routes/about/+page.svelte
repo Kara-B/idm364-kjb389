@@ -32,14 +32,14 @@
             <Icon icon="mdi:flame"  style="color: #282828 ; font-size: 75px" />
             <h2> High Quality & Long-Burning </h2>
         </div>
-        <p> Made with Soy Wax and Bio-degradable materials, WickHeads were made to be not just fun- but environmentally concsious </p>
+        <p> Our high quality wicks guarantee at least 100 hours of burn time & strong scents that last from start to finish </p>
     </div>
     <div class="infoCard">
         <div class="dark_bg ">
             <Icon icon="mdi:charity"  style="color: #F9ECCF; font-size: 75px" />
             <h2> Charitable & Made With Love </h2>
         </div>
-        <p> Made with Soy Wax and Bio-degradable materials, WickHeads were made to be not just fun- but environmentally concsious </p>
+        <p> 25% of our proceeds go to one charitable cause chosen monthly by our fans w/ giveaways to those with proof of donation or participation </p>
     </div>
 </div>
 
@@ -77,6 +77,7 @@
     .infoCard p {
         font-weight: 500;
         padding: 1rem;
+        text-align: center;
     }
     .three-col-cards {
         display: flex;

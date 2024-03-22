@@ -108,6 +108,7 @@ button {
     gap: 10px;
     justify-content: center;
     padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
     width: fit-content;
 }
 .button-stroke {
@@ -117,6 +118,11 @@ button {
     gap: 10px;
     justify-content: center;
     padding: 10px 20px;
+}
+.ctaHover:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-grey);
+    transition: all 0.3s ease-in-out;
 }
 .flexbox {
     display: flex;

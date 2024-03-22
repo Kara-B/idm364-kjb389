@@ -9,7 +9,6 @@
   import { supabase } from '$lib/supabase';
   import { get } from 'svelte/store';
   import { cart } from '$lib/cartStore.js';
-  import Icon from '@iconify/svelte';
   import HeaderTwo from '$lib/HeaderTwo.svelte';
   let selectedSize = "R";
   let count = 1;
@@ -94,17 +93,11 @@
             <button class="bg_none" on:click={incrementCount} on:keydown={(e) => {if (e.key === 'Enter') incrementCount()}}>+</button>
           </div>
       
-          <button id="addToCartButton" class="dark_bg" on:click={addToButton}> Add to Cart </button>
+          <button id="addToCartButton" class="ctaHover" on:click={addToButton}> Add to Cart </button>
       
     </div>
           
   </div>
-<!-- <div id="toast">
-<div class="toast"> 
-<Icon icon="simple-line-icons:check" width="30" height="30"  style="color: #282828; padding: 0;" />
-<h6> <a href="/cart"> Added to Cart! ({count}) </a>  </h6>
-</div>
-</div> -->
 
 </main>
 {:else}
@@ -112,7 +105,7 @@
 {/if}
 
 <style>
-  #addToCartButton {
+  .ctaHover {
     transition: all 3ms ease-in-out;
   }
   .two-col {

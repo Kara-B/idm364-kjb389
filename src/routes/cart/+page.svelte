@@ -2,6 +2,7 @@
     import HeaderTwo from '$lib/HeaderTwo.svelte';
     import { cart } from '$lib/cartStore.js';
     import Icon from '@iconify/svelte';
+    import { writable } from 'svelte/store';
     let subtotal = 0;
     $: {
         subtotal = $cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -37,15 +38,33 @@ function incrementCount(itemId) {
         });
     });
 }
+    let orderPlaced = writable(false);
+    let orderNumber = writable("");
+function checkout() {
+        const randomNumber = Math.floor(1000 + Math.random() * 9000);
+        orderNumber.set(`#${randomNumber}`);
+        cart.set([]);
 
-console.log("this is cart")
-console.log($cart);
+        orderPlaced.set(true);
+
+        setTimeout(() => {
+            orderPlaced.set(false);
+        }, 4000);
+    }
   
 </script>
 <svelte:head>
     <title> Wickhead | Cart ({itemTotal}) </title>
 </svelte:head>
 <HeaderTwo />
+{#if $orderPlaced}
+<div class="order_confirmation">
+    <h2>Your order has been placed successfully!</h2>
+    <p>Thank you for shopping with Wickhead!</p>
+    <p>Order number: {$orderNumber}</p>
+    <div class="toast-timer"></div>
+</div>
+{/if}
 <div class="two_col">
     <div class="cartDiv">
         <h1 class="wt_text"> Your Cart</h1>
@@ -87,7 +106,7 @@ console.log($cart);
         <p> Shipping: <strong> Free, but only for you! </strong></p>
         <p> Sales Tax: ${tax.toFixed(2)} </p> 
         <h5> Total: ${fullTotal.toFixed(2)} </h5>
-        <button> Checkout </button>
+        <button class="ctaHover" on:click={checkout} > Checkout </button>
     </div>
     <img class="absoluteGraphic" src="https://res.cloudinary.com/dsylo3btg/image/upload/v1710217494/candles/misswick_q6dlxl.svg" alt="">
 </div>
@@ -158,6 +177,23 @@ console.log($cart);
         display: flex;
         align-items: center;
         padding: 0.5rem 1rem;
+    }
+    .order_confirmation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 2rem;
+        background-color: #f9f9f9;
+        border-radius: 20px;
+        box-shadow: 0px 5px 2.4px 0px rgba(0, 0, 0, 0.07), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border: 2px solid var(--primary-color);
+        transition: all 0.5s ease-in-out;
+        z-index: 1;
     }
     @media (max-width: 1238px) {
         .two_col {
