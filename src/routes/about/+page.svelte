@@ -47,8 +47,8 @@
     <h3> Scrolled down this far? </h3>
     <p> Either something is very right, or very wrong. Contact us for more information on getting involved, suggestions, or to voice a concern. One way or another- we're listening. </p>
     <div> 
-        <button class="dark_bg"> <Icon icon="bxs:phone"  style="color: #F9ECCF ; font-size: 35px" /> 012-345-6789 </button>
-        <button class="dark_bg"> <Icon icon="ic:round-email"  style="color: #F9ECCF ; font-size: 35px" /> contact@wickhead.co </button>
+        <button class="ctaHover"> <Icon icon="bxs:phone"  style="font-size: 35px" /> 012-345-6789 </button>
+        <button class="ctaHover"> <Icon icon="ic:round-email"  style="font-size: 35px" /> contact@wickhead.co </button>
     </div>
 </div>
 
@@ -120,5 +120,27 @@
         right: 20px;
         top: 230px;
         z-index: -1;
+    }
+    @media (max-width: 800px) {
+        .special_image_grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .special_image_grid img {
+            display: none;
+        }
+        .two-col-spec p {
+            font-size: 20px;
+            max-width: 100%;
+        }
+        .heyThere p {
+            font-size: medium;
+        }
+        .heyThere div {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
     }
 </style>
