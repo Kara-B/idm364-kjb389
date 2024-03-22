@@ -174,7 +174,7 @@
       #WickheadLogo {
           position: absolute;
           top: 20%;
-          left: -15%;
+          left: -20%;
           width: 95%;
           z-index: 5;
       }
